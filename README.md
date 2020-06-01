@@ -1,3 +1,4 @@
+[![Build Status](https://curoniansoftware.visualstudio.com/SpaceGameLearningPath/_apis/build/status/bitfrozen.mslearn-tailspin-spacegame-web?branchName=master)](https://curoniansoftware.visualstudio.com/SpaceGameLearningPath/_build/latest?definitionId=1&branchName=master)
 
 # Contributing
 
