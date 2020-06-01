@@ -2,14 +2,22 @@ trigger:
 - '*'
 
 pool:
+<<<<<<< HEAD
   vmImage: 'ubuntu-16.04'
+=======
+  vmImage: 'ubuntu-latest'
+>>>>>>> master
   demands:
     - npm
 
 variables:
   buildConfiguration: 'Release'
   wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
+<<<<<<< HEAD
   dotnetSdkVersion: '3.1.100'
+=======
+  dotnetSdkVersion: '3.1.300'
+>>>>>>> master
 
 steps:
 - task: UseDotNet@2
@@ -17,11 +25,14 @@ steps:
   inputs:
     version: '$(dotnetSdkVersion)'
 
+<<<<<<< HEAD
 - task: UseDotNet@2
   displayName: 'Use .NET Core SDK 2.1.505 for SonarCloud'
   inputs:
     version: '2.1.505'
 
+=======
+>>>>>>> master
 - task: Npm@1
   displayName: 'Run npm install'
   inputs:
@@ -43,6 +54,7 @@ steps:
     command: 'restore'
     projects: '**/*.csproj'
 
+<<<<<<< HEAD
 - task: SonarCloudPrepare@1
   displayName: 'Prepare SonarCloud analysis'
   inputs:
@@ -63,6 +75,8 @@ steps:
       eq(variables['System.PullRequest.TargetBranch'], 'master')
     )
 
+=======
+>>>>>>> master
 - task: DotNetCoreCLI@2
   displayName: 'Build the project - $(buildConfiguration)'
   inputs:
@@ -71,6 +85,7 @@ steps:
     projects: '**/*.csproj'
 
 - task: DotNetCoreCLI@2
+<<<<<<< HEAD
   displayName: 'Install ReportGenerator'
   inputs:
     command: custom
@@ -116,6 +131,8 @@ steps:
     summaryFileLocation: '$(Build.SourcesDirectory)/**/coverage.cobertura.xml'
 
 - task: DotNetCoreCLI@2
+=======
+>>>>>>> master
   displayName: 'Publish the project - $(buildConfiguration)'
   inputs:
     command: 'publish'
@@ -126,4 +143,8 @@ steps:
 
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
+<<<<<<< HEAD
   condition: succeeded()
+=======
+  condition: succeeded()
+>>>>>>> master
